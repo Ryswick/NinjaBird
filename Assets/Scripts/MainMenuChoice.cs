@@ -6,8 +6,8 @@ public class MainMenuChoice : MonoBehaviour {
 	static int buttonSelected = 0;
 
 	public int buttonNumber;
-	public string buttonTexturePath;
-	public string buttonTextureSelectedPath;
+	public string buttonTextureName;
+	public string buttonTextureSelectedName;
 
 	Texture buttonTexture;
 	Texture buttonSelectedTexture; 
@@ -15,8 +15,8 @@ public class MainMenuChoice : MonoBehaviour {
 	
 	void Start()
 	{
-		buttonTexture = (Texture)Resources.LoadAssetAtPath(buttonTexturePath, typeof(Texture));
-		buttonSelectedTexture = (Texture)Resources.LoadAssetAtPath(buttonTextureSelectedPath, typeof(Texture));
+		buttonTexture = (Texture)Resources.Load(buttonTextureName, typeof(Texture));
+		buttonSelectedTexture = (Texture)Resources.Load(buttonTextureSelectedName, typeof(Texture));
 	}
 
 	void Update()
