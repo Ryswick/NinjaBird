@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 		if(alive)
 			{
 				// If the player ask for a jump, update velocity
-				if(Input.GetButtonDown("Jump"))
+				if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
 				{
 					rigidbody2D.velocity = Vector2.zero;
 					rigidbody2D.AddForce(jumpForce);
