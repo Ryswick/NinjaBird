@@ -17,6 +17,7 @@ public class RandomLine : MonoBehaviour {
 		lines.Add ("YATTA !");
 		lines.Add ("I'm not responsible of this.");
 		lines.Add ("Trust me, you're not a ninja.");
+		lines.Add ("Obstacle : 1 / Ninja : 0");
 
 		randomValue = (int)(Random.value * (lines.Count - 0.01));
 

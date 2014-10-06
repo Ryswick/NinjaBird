@@ -26,15 +26,12 @@ public class MainMenuChoice : MonoBehaviour {
 			guiTexture.texture = buttonSelectedTexture;
 		else if(buttonSelected != buttonNumber && guiTexture.texture != buttonTexture)
 			guiTexture.texture = buttonTexture;
-
-		// If the player has selected an option, call it
-		if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
-			SelectOption ();
 	}
 	
 	void OnMouseEnter()
 	{
 		buttonSelected = buttonNumber;
+		audio.Play();
 	}
 
 	void OnMouseExit()

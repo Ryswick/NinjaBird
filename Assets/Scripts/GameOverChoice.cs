@@ -6,36 +6,43 @@ public class GameOverChoice : MonoBehaviour {
 	static int selectedButton = 0;
 	public int buttonNumber;
 
+	GameOver gameOver;
+
 	// Use this for initialization
 	void Start () {
-	
+		gameOver = GameObject.Find("GameOverScreen(Clone)").gameObject.GetComponent<GameOver>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (guiText.fontStyle != FontStyle.Normal && selectedButton != buttonNumber)
-			guiText.fontStyle = FontStyle.Normal;
-		else if(guiText.fontStyle != FontStyle.Bold && selectedButton == buttonNumber)
-			guiText.fontStyle = FontStyle.Bold;
-
-		// If the player has selected an option, call it
-		if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
-			SelectOption ();
+		if(gameOver.areOptionsOnScreen)
+		{
+			if (guiText.fontStyle != FontStyle.Normal && selectedButton != buttonNumber)
+				guiText.fontStyle = FontStyle.Normal;
+			else if(guiText.fontStyle != FontStyle.Bold && selectedButton == buttonNumber)
+				guiText.fontStyle = FontStyle.Bold;
+		}
 	}
 
-	void OnMouseOver()
+	void OnMouseEnter()
 	{
-		selectedButton = buttonNumber;
+		if(gameOver.areOptionsOnScreen)
+		{
+			selectedButton = buttonNumber;
+			audio.Play();
+		}
 	}
 
 	void OnMouseExit()
 	{
-		selectedButton = 0;
+		if(gameOver.areOptionsOnScreen)
+			selectedButton = 0;
 	}
 
 	void OnMouseDown()
 	{
-		SelectOption();
+		if(gameOver.areOptionsOnScreen)
+			SelectOption();
 	}
 
 	void SelectOption()

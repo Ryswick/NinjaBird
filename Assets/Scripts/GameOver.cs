@@ -19,7 +19,8 @@ public class GameOver : MonoBehaviour {
 	bool isGameOverOnScreen = false;
 	bool isScoreOnScreen = false;
 	bool isRandomLineOnScreen = false;
-	bool areOptionsOnScreen = false;
+	public bool areOptionsOnScreen = false;
+	bool askedForEnd = false; // Whether or not the player asked to show all the game over screen
 
 	// Use this for initialization
 	void Start () {
@@ -42,22 +43,25 @@ public class GameOver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!isGameOverOnScreen && Timer (endTimeGameOver))
+		if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+			askedForEnd = true;
+
+		if(!isGameOverOnScreen && (askedForEnd || Timer (endTimeGameOver)))
 		{
 			isGameOverOnScreen = true;
 			gameOver.guiText.color = new Color (gameOver.guiText.color.r, gameOver.guiText.color.g, gameOver.guiText.color.b, 1f);
 		}
-		if(!isScoreOnScreen && Timer (endTimeScore))
+		if(!isScoreOnScreen && (askedForEnd || Timer (endTimeScore)))
 		{
 			isScoreOnScreen = true;
 			endScore.guiText.color = new Color (endScore.guiText.color.r, endScore.guiText.color.g, endScore.guiText.color.b, 1f);
 		}
-		if(!isRandomLineOnScreen && Timer (endTimeRandomLine))
+		if(!isRandomLineOnScreen && (askedForEnd || Timer (endTimeRandomLine)))
 		{
 			isRandomLineOnScreen = true;
 			randomLine.guiText.color = new Color (randomLine.guiText.color.r, randomLine.guiText.color.g, randomLine.guiText.color.b, 1f);
 		}
-		if(!areOptionsOnScreen && Timer (endTimeOptions))
+		if(!areOptionsOnScreen && (askedForEnd || Timer (endTimeOptions)))
 		{
 			areOptionsOnScreen = true;
 			tryAgain.guiText.color = new Color (tryAgain.guiText.color.r, tryAgain.guiText.color.g, tryAgain.guiText.color.b, 1f);

@@ -32,6 +32,7 @@ public class Obstacle : MonoBehaviour {
 			{
 				dodged = true;
 				score.score++;
+				audio.Play();
 			}
 		}
 		// If the player is dead, we destroy the rigidbody of the obstacle
