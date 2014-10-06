@@ -2,4 +2,7 @@ Ninja Bird
 =========
 
 Ninja Bird is a C# game created with Unity. It's a personal version of the Flappy Bird game created by .GEARS Studios.
-The game is not finished yet. By now, the player can only launch the game with the main menu and play until he died. Next versions of the game will include a decent game over, personal sprites and probably other features.
+
+The goal of the game is to make the best score possible by avoiding the different obstacles which will face your character. The player only need to push the space bar or the left button of the mouse, which give to your character some jump power.
+
+Next versions of the game will include a best score system, more personal sprites and probably other features.
