@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class Splash : MonoBehaviour {
-
-	public GameObject background;
+	
 	GUITexture logo;
 	float endTime;
 	bool isEndSplash;
@@ -36,8 +35,7 @@ public class Splash : MonoBehaviour {
 		}
 		if(endSplash)
 		{
-			Instantiate(background);
-			DestroyObject(gameObject);
+			Application.LoadLevel("MenuScene");
 		}
 	}
 }

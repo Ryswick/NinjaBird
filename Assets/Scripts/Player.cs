@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	
+
+	public GameObject gameOverScreen;
 	public Vector2 playerPosition;
 	public bool alive = true; //State is the player is still alive
 	Vector2 jumpForce = new Vector2(0,350); //Jump power of the player
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour {
 			transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
 			if(screenPosition.y < 0)
 			{
+				Instantiate(gameOverScreen);
 				DestroyObject(gameObject);
 			}
 		}
